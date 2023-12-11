@@ -1,0 +1,35 @@
+﻿<Window x:Class="SalesWPFApp.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalesWPFApp"
+        mc:Ignorable="d"
+        WindowStartupLocation ="CenterScreen"
+        Title="Login" Height="200" Width="500">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" Width="500">
+            <StackPanel Orientation="Horizontal" Width="Auto" Margin="0,20,0,0">
+                <Label Name="lbEmail" Content="Email" Width="100" Margin="20,0,0,0"/>
+                <TextBox Name="txtEmail" Width="250" Margin="20,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="Auto" Margin="0,20,0,0" >
+                <Label Name="lbPassword" Content="Password" Width="100" Margin="20,0,0,0"/>
+                <PasswordBox Name="txtPassword" Width="250" Margin="20,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="Auto" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <Button Name="btnRegister" Content="Register" Width="100" Click="btnRegister_Click"/>
+                <Button Name="btnCancel" Content="Cancel" Width="100" Margin="20,0,0,0" Click="btnCancel_Click"/>
+                <Button Name="btnLogin" Content="Login" Width="100" Margin="20,0,0,0" Click="btnLogin_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

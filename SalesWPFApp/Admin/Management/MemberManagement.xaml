@@ -1,0 +1,52 @@
+﻿<Page x:Class="SalesWPFApp.Management.MemberManagement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:SalesWPFApp.Helper"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="800"
+      Title="MemberManagement">
+    <Page.Resources>
+        <local:EnumToStringConverter x:Key="EnumToStringConverter" />
+    </Page.Resources>
+
+    <Grid Background="LimeGreen">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <ListView Name="lvMembers" Grid.Row="0" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Path=MemberId}"/>
+                        <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding Email}"/>
+                        <GridViewColumn Header="CompanyName" Width="150" DisplayMemberBinding="{Binding CompanyName}"/>
+                        <GridViewColumn Header="City" Width="150" DisplayMemberBinding="{Binding City}"/>
+                        <GridViewColumn Header="Country" Width="150" DisplayMemberBinding="{Binding Country}" />
+                        <GridViewColumn Header="Role" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Role, Converter={StaticResource EnumToStringConverter}}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="10,10,10,10"/>
+                        <Setter Property="Width" Value="100"/>
+                        <Setter Property="Height" Value="30"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Name="btnLoad" Click="btnLoad_Click" Content="Load"/>
+                <Button Name="btnCreate" Click="btnCreate_Click" Content="Create"/>
+                <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Update"/>
+                <Button Name="btnDelete" Click="btnDelete_Click" Content="Delete"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
