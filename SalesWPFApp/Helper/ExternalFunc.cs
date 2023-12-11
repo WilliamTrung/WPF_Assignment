@@ -24,18 +24,7 @@ namespace SalesWPFApp.Helper
                 }
                 return instance;
             }
-        }
-        public Member GetAdminAccount()
-        {
-            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true).Build();
-            var email = config.GetSection("AdminAccount")["Email"];
-            var password = config.GetSection("AdminAccount")["Password"];
-            return new Member()
-            {
-                Email = email,
-                Password = password,
-            };
-        }
+        }      
         public bool DialogBox(string message, string title)
         {
             return MessageBox.Show(message, title,
